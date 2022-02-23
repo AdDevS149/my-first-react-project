@@ -1,0 +1,30 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-details {
+  background-color: white;
+  margin-top: 50px;
+  padding: 1.5rem 0.5rem 0.5rem 1.5rem;
+  line-height: 2.5rem;
+  padding-left: 70px;
+  padding-right: 70px;
+  width: 500px;
+}
+
+.form-input {
+  width: 100%;
+}
+button {
+  margin-left: 125px;
+  padding-bottom: 3px;
+}
+
+.input-message {
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-color: red;
+  border-radius: 8px;
+}

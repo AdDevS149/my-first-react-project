@@ -1,0 +1,14 @@
+.famous-people__title {
+    text-align: center;
+    width: 16rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  li {
+    list-style: none;
+    padding-left: 0.2rem;
+  }
+  
+  span {
+    font-weight: bold;
+  }
