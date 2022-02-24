@@ -10,10 +10,10 @@ const FamousPeopleForm = (props) => {
   const [userNetWorth, setUserNetWorth] = useState('');
 
   const [userNameErr, setUserNameErr] = useState('');
-  const [userJobErr, setUserJobErr] = useState({});
-  const [userCountryErr, setUserCountryErr] = useState({});
-  const [userAgeErr, setUserAgeErr] = useState({});
-  const [userNetWorthErr, setUserNetWorthErr] = useState({});
+  const [userJobErr, setUserJobErr] = useState('');
+  const [userCountryErr, setUserCountryErr] = useState('');
+  const [userAgeErr, setUserAgeErr] = useState('');
+  const [userNetWorthErr, setUserNetWorthErr] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +28,7 @@ const FamousPeopleForm = (props) => {
     props.onSaveUserInputData(userInputData);
 
     const isValid = formValidation();
+  
     if (isValid) {
       setUserName('');
       setUserJob('');
@@ -38,52 +39,34 @@ const FamousPeopleForm = (props) => {
   };
 
   const formValidation = () => {
-    const userNameErr = {};
-    const userJobErr = {};
-    const userCountryErr = {};
-    const userAgeErr = {};
-    const userNetWorthErr = {};
-    let isValid = true;
-
-    if (!userName.trim().length > 0) {
-      userNameErr.userNameValueEmpty = 'Please insert name value';
-      isValid = false;
-    }
-    console.log(userNameErr);
-    if (!userJob.trim().length > 0) {
-      userJobErr.userJobValueEmpty = 'Please insert a job value';
-      isValid = false;
-      console.log(userJobErr.userJobValueEmpty);
+    if (!userName) {
+      setUserNameErr('Please insert name value');
     }
 
-    if (!userCountry.trim().length > 0) {
-      userCountryErr.userCountryValueEmpty = 'Please insert a country value';
-      isValid = false;
+    if (!userJob) {
+      setUserJobErr('Please insert a job value');
+      
     }
 
-    if (!userAge.trim().length > 0) {
-      userAgeErr.userAgeEmptyValue = 'Please insert an age value';
-      isValid = false;
+    if (!userCountry) {
+      setUserCountryErr('Please insert a country value');
+     
     }
 
-    if (!userNetWorth.trim().length > 0) {
-      userNetWorthErr.userNetWorthEmptyValue = 'Please insert an net worth value';
-      isValid = false;
+    if (!userAge) {
+      setUserAgeErr('Please insert an age value');
+      
     }
 
-    setUserNameErr(userNameErr);
-    setUserJobErr(userJobErr);
-    setUserCountryErr(userCountryErr);
-    setUserAgeErr(userAgeErr);
-    setUserNetWorthErr(userNetWorthErr);
-    return isValid;
+    if (!userNetWorth) {
+      setUserNetWorthErr('Please insert an net worth value');
+    }
   };
 
   return (
     <div className='form-container'>
       <div className='form-details'>
         <form onSubmit={onSubmit}>
-         
           <input
             type='text'
             value={userName}
@@ -138,10 +121,13 @@ const FamousPeopleForm = (props) => {
             }}
           />
           <br />
-
           <button type='submit'>Add User</button>
           <br />
-          <br />
+          <p className='input-message'>{userNameErr}</p>
+          <p className='input-message'>{userJobErr}</p>
+          <p className='input-message'>{userCountryErr}</p>
+          <p className='input-message'>{userAgeErr}</p>
+          <p className='input-message'>{userNetWorthErr}</p>
         </form>
       </div>
     </div>

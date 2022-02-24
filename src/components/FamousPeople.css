@@ -1,12 +1,11 @@
-.famous-person__container {
-  display: flex;
-  background-color: pink;
-}
-
 .famous-people__title {
     text-align: center;
     width: 16rem;
     margin-bottom: 0.5rem;
+  }
+  
+  .famous-people__details {
+    /* font-size: 1.5rem; */
   }
   
   li {
@@ -17,9 +16,3 @@
   span {
     font-weight: bold;
   }
-.test {
-  /* display: flex;
-  background-color: green;
-  flex-basis: auto;  */
-  /* align-content: flex-end; */
-}

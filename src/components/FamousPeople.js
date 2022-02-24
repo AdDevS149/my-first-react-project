@@ -1,31 +1,33 @@
 import React from 'react';
 
-import Card from './UI/Card';
 import './FamousPerson.css';
 
 const FamousPerson = (props) => {
   return (
-    <Card className='famous-people__details'>
-      <h3 className='famous-people__title'>{props.name}</h3>
+    <div className="famous-people__details"> 
+    {/*<div className='famous-people__details'>*/}
+    <h3 className='famous-people__title'>{props.name}</h3>
+    <div>
+    </div>
       <ul>
         <li>
           <span>Job: </span>
           {props.job}
         </li>
         <li>
-          <span>UserCountry: </span>
+          <span>Country: </span>
           {props.userCountry}
         </li>
         <li>
           <span>Age: </span>
-          {props.userage}
+          {props.userAge}
         </li>
         <li>
           <span>Net worth: </span>
           {props.netWorth}
         </li>
-      </ul>
-    </Card>
+      </ul>  
+  </div>
   );
 };
 

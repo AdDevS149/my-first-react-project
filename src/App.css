@@ -1,5 +1,11 @@
-/* .App {
+/* .famous-person__container {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
+  background-color: green;
 } */
 
-
+/* .test {
+  display: flex;
+  background-color: red;
+} */
