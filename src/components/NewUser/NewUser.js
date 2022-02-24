@@ -11,7 +11,7 @@ const NewUser = (props) => {
     const userInputData = {
       ...newInputData,
     };
-    props.onAddNewUsserHandler(userInputData);
+    props.onAddNewUserHandler(userInputData);
   };
   return (
     <div className='new-user'>

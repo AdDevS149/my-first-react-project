@@ -4,7 +4,7 @@ const FamousPerson = (props) => {
   return (
     <div>
       {props.person.map((user) => (
-        <FamousPeople key={user.id} name={user.name} job={user.job} country={user.country} age={user.age} netWorth={user.netWorth} />
+        <FamousPeople key={user.id} name={user.name} job={user.job} userCountry={user.userCountry} userage={user.userage} netWorth={user.netWorth} />
       ))}
     </div>
   );

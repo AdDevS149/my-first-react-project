@@ -2,35 +2,21 @@ import React, { useState } from 'react';
 
 import './NewPersonForm.css';
 
-const NewPersonForm = (props) => {
+const FamousPeopleForm = (props) => {
   const [userName, setUserName] = useState('');
   const [userJob, setUserJob] = useState('');
   const [userCountry, setUserCountry] = useState('');
   const [userAge, setUserAge] = useState('');
   const [userNetWorth, setUserNetWorth] = useState('');
 
-  const userNameChangeHandler = (event) => {
-    setUserName(event.target.value);
-  };
+  const [userNameErr, setUserNameErr] = useState('');
+  const [userJobErr, setUserJobErr] = useState({});
+  const [userCountryErr, setUserCountryErr] = useState({});
+  const [userAgeErr, setUserAgeErr] = useState({});
+  const [userNetWorthErr, setUserNetWorthErr] = useState({});
 
-  const userJobChangeHandler = (event) => {
-    setUserJob(event.target.value);
-  };
-
-  const userCountryChangeHandler = (event) => {
-    setUserCountry(event.target.value);
-  };
-
-  const userAgeChangeHandler = (event) => {
-    setUserAge(event.target.value);
-  };
-
-  const userNetWorthChangeHandler = (event) => {
-    setUserNetWorth(event.target.value);
-  };
-
-  const submitHandler = (event) => {
-    event.preventDefault();
+  const onSubmit = (e) => {
+    e.preventDefault();
 
     const userInputData = {
       name: userName,
@@ -39,47 +25,127 @@ const NewPersonForm = (props) => {
       age: userAge,
       netWorth: userNetWorth,
     };
-
     props.onSaveUserInputData(userInputData);
-    setUserName('');
-    setUserJob('');
-    setUserCountry('');
-    setUserAge('');
-    setUserNetWorth('');
+
+    const isValid = formValidation();
+    if (isValid) {
+      setUserName('');
+      setUserJob('');
+      setUserCountry('');
+      setUserAge('');
+      setUserNetWorth('');
+    }
+  };
+
+  const formValidation = () => {
+    const userNameErr = {};
+    const userJobErr = {};
+    const userCountryErr = {};
+    const userAgeErr = {};
+    const userNetWorthErr = {};
+    let isValid = true;
+
+    if (!userName.trim().length > 0) {
+      userNameErr.userNameValueEmpty = 'Please insert name value';
+      isValid = false;
+    }
+    console.log(userNameErr);
+    if (!userJob.trim().length > 0) {
+      userJobErr.userJobValueEmpty = 'Please insert a job value';
+      isValid = false;
+      console.log(userJobErr.userJobValueEmpty);
+    }
+
+    if (!userCountry.trim().length > 0) {
+      userCountryErr.userCountryValueEmpty = 'Please insert a country value';
+      isValid = false;
+    }
+
+    if (!userAge.trim().length > 0) {
+      userAgeErr.userAgeEmptyValue = 'Please insert an age value';
+      isValid = false;
+    }
+
+    if (!userNetWorth.trim().length > 0) {
+      userNetWorthErr.userNetWorthEmptyValue = 'Please insert an net worth value';
+      isValid = false;
+    }
+
+    setUserNameErr(userNameErr);
+    setUserJobErr(userJobErr);
+    setUserCountryErr(userCountryErr);
+    setUserAgeErr(userAgeErr);
+    setUserNetWorthErr(userNetWorthErr);
+    return isValid;
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className='form-container'>
-        <div className='form-details'>
-          <label>Name</label>
-          <input type='text' value={userName} className='form-input' placeholder='Username' onChange={userNameChangeHandler} />
+    <div className='form-container'>
+      <div className='form-details'>
+        <form onSubmit={onSubmit}>
+         
+          <input
+            type='text'
+            value={userName}
+            className='form-input'
+            placeholder='Username'
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
           <br />
 
-          <label>Job</label>
-          <input type='text' value={userJob} className='form-input' placeholder='Job' onChange={userJobChangeHandler} />
+          <input
+            type='text'
+            value={userJob}
+            className='form-input'
+            placeholder='Job'
+            onChange={(e) => {
+              setUserJob(e.target.value);
+            }}
+          />
           <br />
 
-          <label>Country</label>
-          <input type='text' value={userCountry} className='form-input' placeholder='Country' onChange={userCountryChangeHandler} />
+          <input
+            type='text'
+            value={userCountry}
+            className='form-input'
+            placeholder='UserCountry'
+            onChange={(e) => {
+              setUserCountry(e.target.value);
+            }}
+          />
           <br />
 
-          <label>Age</label>
-          <input type='text' value={userAge} className='form-input' placeholder='Age' onChange={userAgeChangeHandler} />
+          <input
+            type='text'
+            value={userAge}
+            className='form-input'
+            placeholder='Age'
+            onChange={(e) => {
+              setUserAge(e.target.value);
+            }}
+          />
           <br />
 
-          <label>Net Worth</label>
-          <input type='text' value={userNetWorth} className='form-input' placeholder='Job' onChange={userNetWorthChangeHandler} />
+          <input
+            type='text'
+            value={userNetWorth}
+            className='form-input'
+            placeholder='Net worth'
+            onChange={(e) => {
+              setUserNetWorth(e.target.value);
+            }}
+          />
           <br />
 
-          <div>
-            <button type='submit'>Add User</button>
-          </div>
-        </div>
+          <button type='submit'>Add User</button>
+          <br />
+          <br />
+        </form>
       </div>
-    </form>
+    </div>
   );
 };
 
-export default NewPersonForm;
-
+export default FamousPeopleForm;

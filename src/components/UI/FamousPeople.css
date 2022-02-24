@@ -12,3 +12,7 @@ li {
 span {
   font-weight: bold;
 }
+
+.test { 
+  background-color: red;
+}
