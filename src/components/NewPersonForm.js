@@ -17,18 +17,9 @@ const FamousPeopleForm = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    const userInputData = {
-      name: userName,
-      job: userJob,
-      country: userCountry,
-      age: userAge,
-      netWorth: userNetWorth,
-    };
-    props.onSaveUserInputData(userInputData);
+    
 
     const isValid = formValidation();
-  
     if (isValid) {
       setUserName('');
       setUserJob('');
@@ -36,31 +27,54 @@ const FamousPeopleForm = (props) => {
       setUserAge('');
       setUserNetWorth('');
     }
+  const userInputData = {
+      // id: userId,
+      name: userName,
+      job: userJob,
+      userCountry: userCountry,
+      userAge: userAge,
+      netWorth: userNetWorth,
+    };
+    props.onSaveUserInputData(userInputData);
   };
 
+
   const formValidation = () => {
+    setUserNameErr('');
+    setUserJobErr('');
+    setUserCountryErr('');
+    setUserAgeErr('');
+    setUserNetWorthErr('');
+  let isValid = true;
+
     if (!userName) {
+      isValid = false;
       setUserNameErr('Please insert name value');
-    }
+      return
+    } 
 
     if (!userJob) {
+      isValid = false;
       setUserJobErr('Please insert a job value');
-      
     }
 
     if (!userCountry) {
+      isValid = false
       setUserCountryErr('Please insert a country value');
-     
     }
 
     if (!userAge) {
+      isValid = false;
       setUserAgeErr('Please insert an age value');
-      
     }
 
     if (!userNetWorth) {
+      isValid = false;
       setUserNetWorthErr('Please insert an net worth value');
+      // return
     }
+return isValid;
+  
   };
 
   return (
@@ -69,6 +83,7 @@ const FamousPeopleForm = (props) => {
         <form onSubmit={onSubmit}>
           <input
             type='text'
+            // id={id}
             value={userName}
             className='form-input'
             placeholder='Username'
@@ -93,7 +108,7 @@ const FamousPeopleForm = (props) => {
             type='text'
             value={userCountry}
             className='form-input'
-            placeholder='UserCountry'
+            placeholder='Country'
             onChange={(e) => {
               setUserCountry(e.target.value);
             }}

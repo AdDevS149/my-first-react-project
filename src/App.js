@@ -25,7 +25,7 @@ const App = () => {
     <div>
      {/*<NewUser onAddNewUserHandler={addNewUserHandler} />*/} 
       <NewPersonForm onSaveUserInputData={addNewUserHandler} />
-      <div className="test">
+      <div key={users.id} >
         <FamousPerson person={users} />
       </div>
     </div>
@@ -33,5 +33,3 @@ const App = () => {
 };
 
 export default App;
-
-// className=""

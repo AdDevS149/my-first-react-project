@@ -1,25 +1,25 @@
-.famous-person__container {
-  display: flex;
-  background-color: pink;
+.form-details {
+  display: inline-flex;
+  margin-left: 300px;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
 }
 
-.famous-people__title {
-    text-align: center;
-    width: 16rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  li {
-    list-style: none;
-    padding-left: 0.2rem;
-  }
-  
-  span {
-    font-weight: bold;
-  }
-.test {
-  /* display: flex;
-  background-color: green;
-  flex-basis: auto;  */
-  /* align-content: flex-end; */
+
+
+
+.form-detail input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid blue;
+  width: 20rem;
+  max-width: 100%;
+
+}
+
+.form-details button {
+  margin-left: 130px;
+
 }

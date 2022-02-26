@@ -9,3 +9,23 @@
   display: flex;
   background-color: red;
 } */
+/* 
+const FamousPerson = (props) => {
+     
+  const users = props.person.map((user) => {
+return (
+<div className="form-details" key={user.id}>
+ <FamousPeople 
+       name={user.name} 
+       job={user.job} 
+       userCountry={user.userCountry} 
+       userAge={user.userAge} 
+       netWorth={user.userNetWorth} />
+</div>
+)
+  })
+return (
+  <div>{users}</div>
+)
+     
+     } */

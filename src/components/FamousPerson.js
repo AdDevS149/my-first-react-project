@@ -1,12 +1,26 @@
 import FamousPeople from './FamousPeople';
+import './FamousPeople.css'
 
 const FamousPerson = (props) => {
+
+
   return (
-    <div>
+     
+   <div>
       {props.person.map((user) => (
-        <FamousPeople key={user.id} name={user.name} job={user.job} userCountry={user.userCountry} userAge={user.userAge} netWorth={user.userNetWorth} />
+        <div className="form-details"> 
+        <FamousPeople 
+        id={user.id}
+        name={user.name} 
+        job={user.job} 
+        country={user.userCountry} 
+        age={user.userAge} 
+        netWorth={user.userNetWorth} />
+          </div>
       ))}
-    </div>
+     
+  </div> 
+   
   );
 };
 
