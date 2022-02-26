@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './NewPersonForm.css';
 
 const FamousPeopleForm = (props) => {
+  console.log(props.users);
   const [userName, setUserName] = useState('');
   const [userJob, setUserJob] = useState('');
   const [userCountry, setUserCountry] = useState('');
@@ -17,7 +18,6 @@ const FamousPeopleForm = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    
 
     const isValid = formValidation();
     if (isValid) {
@@ -27,7 +27,7 @@ const FamousPeopleForm = (props) => {
       setUserAge('');
       setUserNetWorth('');
     }
-  const userInputData = {
+    const userInputData = {
       // id: userId,
       name: userName,
       job: userJob,
@@ -38,19 +38,18 @@ const FamousPeopleForm = (props) => {
     props.onSaveUserInputData(userInputData);
   };
 
-
   const formValidation = () => {
     setUserNameErr('');
     setUserJobErr('');
     setUserCountryErr('');
     setUserAgeErr('');
     setUserNetWorthErr('');
-  let isValid = true;
+    let isValid = true;
 
     if (!userName) {
       isValid = false;
       setUserNameErr('Please insert name value');
-    } 
+    }
 
     if (!userJob) {
       isValid = false;
@@ -58,7 +57,7 @@ const FamousPeopleForm = (props) => {
     }
 
     if (!userCountry) {
-      isValid = false
+      isValid = false;
       setUserCountryErr('Please insert a country value');
     }
 
@@ -70,15 +69,13 @@ const FamousPeopleForm = (props) => {
     if (!userNetWorth) {
       isValid = false;
       setUserNetWorthErr('Please insert an net worth value');
-      // return
     }
-return isValid;
-  
+    return isValid;
   };
 
   return (
     <div className='form-container'>
-      <div className='form-details'>
+      <div className='form-details__inputs'>
         <form onSubmit={onSubmit}>
           <input
             type='text'

@@ -3,8 +3,18 @@
   justify-content: center;
 }
 
+.form-details__inputs {
+  background-color: white;
+  margin-top: 50px;
+  padding: 1.5rem 0.5rem 0.5rem 1.5rem;
+  line-height: 2.5;
+  padding-left: 70px;
+  padding-right: 70px;
+  width: 500px;
+}
+
 .form-details {
-  display: flex;
+  /* display: flex; */
   background-color: white;
   margin-top: 50px;
   padding: 1.5rem 0.5rem 0.5rem 1.5rem;
@@ -15,7 +25,8 @@
 }
 
 .form-input {
-  width: 100%;
+  width: 20rem;
+  padding: 0.2rem;
 }
 button {
   margin-left: 125px;

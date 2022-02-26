@@ -2,14 +2,14 @@ import React from 'react';
 
 import './FamousPerson.css';
 
-const FamousPerson = ({name, job, country, age, netWorth}) => {
+const FamousPerson = ({ id, name, job, country, age, netWorth }) => {
   // console.log('id',id)
   return (
-    <div className="famous-people__details"> 
-    {/*<div className='famous-people__details'>*/}
-    {/* <h3 className='famous-people__title' >{props.name}</h3> */}
+    <div className='famous-people__details'>
+      {/*<div className='famous-people__details'>*/}
+      <h3 className='famous-people__title'>{name}</h3>
       <ul>
-      <li>{name}</li>
+        {/* <li>{name}</li> */}
         <li>
           <span>Job: </span>
           {job}
@@ -26,8 +26,8 @@ const FamousPerson = ({name, job, country, age, netWorth}) => {
           <span>Net worth: </span>
           {netWorth}
         </li>
-      </ul>  
-  </div>
+      </ul>
+    </div>
   );
 };
 

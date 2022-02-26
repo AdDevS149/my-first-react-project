@@ -6,9 +6,8 @@ import './NewFamousPerson.css';
 
 const NewFamousPerson = () => {
   return (
-    <div className='form-container'>
-    <NewFamousPersonForm />
-      
+    <div>
+      <NewFamousPersonForm />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // import NewUser from './components/NewUser/NewUser';
 import FamousPerson from './components/FamousPerson';
-import NewPersonForm from './components/NewPersonForm'
+import NewPersonForm from './components/NewPersonForm';
 
 const TEMP_USERS = [
   { id: 1, name: 'John Mayer', job: 'Singer', userCountry: 'USA', userAge: 44, userNetWorth: '40M' },
@@ -14,8 +14,7 @@ const App = () => {
   const [users, setUsers] = useState(TEMP_USERS);
 
   const addNewUserHandler = (user) => {
-    
-    setUsers([...users, user])
+    setUsers([...users, user]);
     // setUsers((prevUsers) => {
     //   return [user, ...prevUsers];
     // });
@@ -23,9 +22,9 @@ const App = () => {
 
   return (
     <div>
-     {/*<NewUser onAddNewUserHandler={addNewUserHandler} />*/} 
+      {/*<NewUser onAddNewUserHandler={addNewUserHandler} />*/}
       <NewPersonForm onSaveUserInputData={addNewUserHandler} />
-      <div key={users.id} >
+      <div key={users.id}>
         <FamousPerson person={users} />
       </div>
     </div>

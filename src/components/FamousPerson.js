@@ -8,7 +8,7 @@ const FamousPerson = (props) => {
      
    <div>
       {props.person.map((user) => (
-        <div className="form-details"> 
+        <div className="famous-person__display"> 
         <FamousPeople 
         id={user.id}
         name={user.name} 
