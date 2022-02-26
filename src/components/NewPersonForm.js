@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './NewPersonForm.css';
 
 const FamousPeopleForm = (props) => {
-  console.log(props.users);
+  console.log('form', props);
   const [userName, setUserName] = useState('');
   const [userJob, setUserJob] = useState('');
   const [userCountry, setUserCountry] = useState('');
@@ -19,6 +19,14 @@ const FamousPeopleForm = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    const userInputData = {
+      name: userName,
+      job: userJob,
+      userCountry: userCountry,
+      userAge: userAge,
+      userNetWorth: userNetWorth,
+    };
+console.log('userInput', userInputData)
     const isValid = formValidation();
     if (isValid) {
       setUserName('');
@@ -26,16 +34,8 @@ const FamousPeopleForm = (props) => {
       setUserCountry('');
       setUserAge('');
       setUserNetWorth('');
+      props.onSaveUserInputData(userInputData);
     }
-    const userInputData = {
-      // id: userId,
-      name: userName,
-      job: userJob,
-      userCountry: userCountry,
-      userAge: userAge,
-      netWorth: userNetWorth,
-    };
-    props.onSaveUserInputData(userInputData);
   };
 
   const formValidation = () => {

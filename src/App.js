@@ -24,8 +24,8 @@ const App = () => {
     <div>
       {/*<NewUser onAddNewUserHandler={addNewUserHandler} />*/}
       <NewPersonForm onSaveUserInputData={addNewUserHandler} />
-      <div key={users.id}>
-        <FamousPerson person={users} />
+      <div >
+        <FamousPerson key={users.id} person={users} />
       </div>
     </div>
   );

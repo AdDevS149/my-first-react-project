@@ -2,29 +2,28 @@ import React from 'react';
 
 import './FamousPerson.css';
 
-const FamousPerson = ({ id, name, job, country, age, netWorth }) => {
-  // console.log('id',id)
+const FamousPerson = (props) => {
+  console.log('test', props.id);
   return (
-    <div className='famous-people__details'>
-      {/*<div className='famous-people__details'>*/}
-      <h3 className='famous-people__title'>{name}</h3>
+    <div className='famous-people__details' key={props.id}>
+      <h3 className='famous-people__title'>{props.name}</h3>
       <ul>
         {/* <li>{name}</li> */}
         <li>
           <span>Job: </span>
-          {job}
+          {props.job}
         </li>
         <li>
           <span>Country: </span>
-          {country}
+          {props.country}
         </li>
         <li>
           <span>Age: </span>
-          {age}
+          {props.age}
         </li>
         <li>
           <span>Net worth: </span>
-          {netWorth}
+          {props.netWorth}
         </li>
       </ul>
     </div>

@@ -1,26 +1,15 @@
 import FamousPeople from './FamousPeople';
-import './FamousPeople.css'
+import './FamousPeople.css';
 
 const FamousPerson = (props) => {
-
-
   return (
-     
-   <div>
+    <div>
       {props.person.map((user) => (
-        <div className="famous-person__display"> 
-        <FamousPeople 
-        id={user.id}
-        name={user.name} 
-        job={user.job} 
-        country={user.userCountry} 
-        age={user.userAge} 
-        netWorth={user.userNetWorth} />
-          </div>
+        <div className='famous-person__display' >
+          <FamousPeople id={user.id} name={user.name} job={user.job} country={user.userCountry} age={user.userAge} netWorth={user.userNetWorth} />
+        </div>
       ))}
-     
-  </div> 
-   
+    </div>
   );
 };
 
