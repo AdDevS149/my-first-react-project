@@ -50,7 +50,6 @@ const FamousPeopleForm = (props) => {
     if (!userName) {
       isValid = false;
       setUserNameErr('Please insert name value');
-      return
     } 
 
     if (!userJob) {
